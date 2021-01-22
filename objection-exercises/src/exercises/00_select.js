@@ -8,6 +8,7 @@ const run = (async () => {
   console.log(allUsers)
 
   // Get all pets
+  User.query.select('pets')
 
 
   // Get the name and age of all users

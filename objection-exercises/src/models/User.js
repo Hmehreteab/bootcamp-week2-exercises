@@ -6,7 +6,18 @@ class User extends BaseModel {
   }
 
   static get relationMappings() {
-    return {}
+    const Pet = require('./Pet')
+    return {
+      // added
+      pets: {
+        relation: HasManyRelation,
+        modelClass: Pet,
+        join: {
+          from: 'users.id',
+          to: 'pets.ownerId'
+        },
+      },
+    }
   }
 }
 
